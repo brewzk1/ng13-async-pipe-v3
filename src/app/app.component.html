@@ -3,8 +3,7 @@
    <h2>About the Demos</h2>
    <p>The demos fetch an array of users from the <a href="https://jsonplaceholder.typicode.com/" target="_blank"
          rel="noopener noreferrer">jsonplaceholder</a> api, and lists them.<br>
-      A "loading..." message is displayed
-      until the data arrives.</p>
+      The data arrives after a 2 second delay during which a "loading..." message is displayed.</p>
 
    <!-- example 1 -->
    <details *ngIf="example1UserData.length > 0; else example1Loading">
@@ -14,7 +13,9 @@
          <li *ngFor="let u of example1UserData">{{ u.name }}</li>
       </ul>
    </details>
-   <ng-template #example1Loading>Example 1 Loading...</ng-template>
+   <ng-template #example1Loading>
+      <p>Example 1 Loading...</p>
+   </ng-template>
 
    <!-- example 2 -->
    <details *ngIf="example2UserData$ | async as eg2; else example2Loading">
@@ -24,7 +25,9 @@
          <li *ngFor="let u of eg2">{{ u.name }}</li>
       </ul>
    </details>
-   <ng-template #example2Loading>Example 2 Loading...</ng-template>
+   <ng-template #example2Loading>
+      <p>Example 2 Loading...</p>
+   </ng-template>
 
    <h3>Related Resources</h3>
    <ol>
@@ -34,5 +37,7 @@
             rel="noopener noreferrer">Angular ngIf async pipe</a></li>
       <li><a href="https://bobbyhadz.com/blog/typescript-property-does-not-exist-on-type-never" target="_blank"
             rel="noopener noreferrer">ngFor - type never error</a></li>
+      <li><a href="https://fireflysemantics.medium.com/simulating-http-rest-requests-using-the-rxjs-delay-operator-e46abac36414"
+            target="_blank" rel="noopener noreferrer">RXJS delay</a></li>
    </ol>
 </div>
