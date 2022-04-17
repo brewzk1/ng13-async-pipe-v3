@@ -8,15 +8,21 @@ import { ApiService } from './api.service';
    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-   example1userData: any[] = [];
+   example1UserData: any[] = [];
    example1Sub: Subscription = new Subscription();
 
-   constructor(private apiService: ApiService) { }
+   example2UserData$: Observable<any[]> | undefined;
+
+   constructor(private apiService: ApiService) {
+      //if you comment the line below you should see the e.g.2 loading msg
+      this.example2UserData$ = this.apiService.example2Data;
+   }
 
    ngOnInit() {
       this.example1Sub = this.apiService.getUsers()
          .subscribe((res: any) => {
-            this.example1userData = res;
+            //if you comment the line below you should see the e.g.1 loading msg
+            this.example1UserData = res;
          });
    }
 
