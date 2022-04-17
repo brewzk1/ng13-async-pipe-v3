@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { tap, map, delay } from 'rxjs/operators';
+
 
 @Injectable({
    providedIn: 'root'
@@ -8,16 +10,21 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
    constructor(private http: HttpClient) {
-      this.example2Data = this.http.get<any[]>(this.url);
+      // example 2
+      this.getUsers()
    }
 
    private url = 'https://jsonplaceholder.typicode.com/users';
 
    // example 2
-   example2Data: Observable<any>;
+   example2Data: Observable<any> | undefined;
 
-   // example 1
+   // for examples 1 and 2.
+   // data is returned after a 2 sec. delay.
    getUsers() {
-      return this.http.get<any[]>(this.url);
+      this.example2Data = this.http
+         .get<any[]>(this.url)
+         .pipe(delay(2000));
+      return this.example2Data;
    }
 }
