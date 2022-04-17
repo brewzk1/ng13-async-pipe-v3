@@ -2,7 +2,8 @@
 
    <h2>About the Demos</h2>
    <p>The demos fetch an array of users from the <a href="https://jsonplaceholder.typicode.com/" target="_blank"
-         rel="noopener noreferrer">jsonplaceholder</a> api, and lists each user names. A loading message
+         rel="noopener noreferrer">jsonplaceholder</a> api, and lists them.<br>
+      A "loading..." message is displayed
       until the data arrives.</p>
 
    <!-- example 1 -->
@@ -18,7 +19,7 @@
    <!-- example 2 -->
    <details *ngIf="example2UserData$ | async as eg2; else example2Loading">
       <p>Received {{ eg2.length }} users.</p>
-      <summary>Example 2 : ngIf/else, ngFor (nested)</summary>
+      <summary>Example 2 : async pipe, ngIf/else, ngFor (nested)</summary>
       <ul>
          <li *ngFor="let u of eg2">{{ u.name }}</li>
       </ul>
