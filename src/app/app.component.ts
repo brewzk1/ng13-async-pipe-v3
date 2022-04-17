@@ -11,7 +11,7 @@ export class AppComponent {
    example1UserData: any[] = [];
    example1Sub: Subscription = new Subscription();
 
-   example2UserData$: Observable<any[]> | undefined;
+   example2UserData$: Observable<any> | undefined;
 
    constructor(private apiService: ApiService) {
       //if you comment the line below you should see the e.g.2 loading msg
