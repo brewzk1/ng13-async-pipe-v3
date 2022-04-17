@@ -7,6 +7,7 @@
 
    <!-- example 1 -->
    <details *ngIf="example1UserData.length > 0; else example1Loading">
+      <p>Received {{ example1UserData.length }} users.</p>
       <summary>Example 1 : Sub/unsub, ngIf/else, ngFor (nested)</summary>
       <ul>
          <li *ngFor="let u of example1UserData">{{ u.name }}</li>
@@ -16,6 +17,7 @@
 
    <!-- example 2 -->
    <details *ngIf="example2UserData$ | async as eg2; else example2Loading">
+      <p>Received {{ eg2.length }} users.</p>
       <summary>Example 2 : ngIf/else, ngFor (nested)</summary>
       <ul>
          <li *ngFor="let u of eg2">{{ u.name }}</li>
